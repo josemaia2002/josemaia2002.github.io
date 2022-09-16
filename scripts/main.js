@@ -9,7 +9,7 @@ myImage.onclick = () => {
   }
 }
 
-let myButton = document.querySelector('button');
+let myButton = document.querySelector('#user_btn');
 let myHeading = document.querySelector('h1');
 
 function setUserName() {
@@ -34,28 +34,21 @@ myButton.onclick = () => {
   setUserName();
 }
 
+function changeTheme() {
+  const theme = document.querySelector('body');
+  const themeStyles = window.getComputedStyle(theme);
 
+  if(themeStyles.getPropertyValue('background-color') == 'rgb(255, 255, 255)'){
+    theme.style.backgroundColor = 'rgb(0, 0, 0)';
+    theme.style.color = 'rgb(255, 255, 255)';
+  }
+  else{
+    theme.style.backgroundColor = 'rgb(255, 255, 255)';
+    theme.style.color = 'rgb(0, 0, 0)';
+  }
 
+}
 
+const darkThemeButton = document.querySelector('#btn');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* const myHeading = document.querySelector('h1');
-myHeading.textContent = 'Hello world!';
-
-document.querySelector('html').addEventListener('click', function() {
-	alert('Ouch! Stop poking me!');
-});
-*/
+darkThemeButton.addEventListener('click', changeTheme);
